@@ -1,3 +1,9 @@
+button{
+  font-size: 20px;
+  font-family: Helvetica;
+  margin-bottom: 20px;
+}
+
 .button-div{
   display: -webkit-box;
   display: -moz-box;

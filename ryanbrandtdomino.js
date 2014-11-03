@@ -1,8 +1,13 @@
 $(function(){
-  console.log("Loaded");
-  window.onload = 
 
-
+  // Sets the proportion for height to width on load to work on any resolution.
+  $(window).load(function(e) { 
+    $(".dot")
+      .height($(".dot")
+        .width()
+      );
+    });
+  
   // On window resize, ties the height of the pips to the width.
   window.addEventListener("resize", function(e) { 
     $(".dot")
@@ -18,9 +23,10 @@ $(function(){
 
   var allPips = ".t1, .t3, .t4, .t5, .t6, .t7, .t9, .b1, .b3, .b4, .b5, .b6, .b7, .b9";
   var rotateAmt = 90;
+
+  // Based on going either right or left, this will make the domino transform in 90 degree increments
   var rotate = function(){ 
     $(".domino").css("transform", "rotate(" + rotateAmt + "deg)");          
-    console.log(rotateAmt);
     };
 
   $(".rotate-right")
@@ -34,6 +40,8 @@ $(function(){
       rotateAmt = rotateAmt - 90;
     });
 
+  // Selects a string at random from the arrays of the topPips and bottomPips and passes it through 
+  // to the function to add the class in order to show the pips
   $(".randomize")
     .click(function(){
       var randomedTop = topPips[Math.floor(Math.random()*topPips.length)];
